@@ -1,2 +1,3 @@
-# webpack_app
-Webpack starter and dev environment
+# Webpack Starter App
+
+Webpack dev environment
