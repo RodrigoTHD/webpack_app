@@ -6,9 +6,15 @@ Webpack dev environment
 
     1.0.0 
 
-### Install Environment
+### Commands
 
-    1. npm install -g webpack
-    2. npm init --yes
-    3. 
+    - npm install -g webpack
+    - npm install -g webpack-cli
+    - npm list -g --depth 0
+    - npm init --yes
+
+    - create file `index.html`
+    - cmd: webpack app.js bundle.js
+
+
         
