@@ -1,1 +1,3 @@
-alert('Hello World!');
+import fn from "./src/index";
+
+fn();

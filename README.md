@@ -3,18 +3,16 @@
 Webpack dev environment
 
 ### Version
-
     1.0.0 
 
-### Commands
-
-    - npm install -g webpack
-    - npm install -g webpack-cli
+### Install commands
+    - npm install -g live-server
+    - npm install -g webpack webpack-cli
     - npm list -g --depth 0
     - npm init --yes
 
-    - create file `index.html`
-    - cmd: webpack app.js bundle.js
+### Webpack commands
+    - webpack app.js
 
 
         
