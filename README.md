@@ -29,9 +29,9 @@ Webpack dev environment
     - webpack ./src/app.js -p --watch (production and automatic generate file)
 
 
-    ### References: 
-        - https://ejs.co/ (Embedded JavaScript templating.)
-        - https://github.com/jantimon/html-webpack-plugin (html-webpack-plugin)
+### References: 
+    - https://ejs.co/ (Embedded JavaScript templating.)
+    - https://github.com/jantimon/html-webpack-plugin (html-webpack-plugin)
 
 
         
