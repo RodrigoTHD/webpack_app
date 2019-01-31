@@ -16,15 +16,22 @@ Webpack dev environment
     - npm list -g --depth 0
 
 ### Install commands
-    - npm i -D webpack
-    - npm i -D webpack-cli
     - npm run dev
     - npm run prod
+    - npm i -D webpack
+    - npm i -D webpack-cli
+    - npm i html-webpack-plugin --save-dev
+    - npm i css-loader --save-dev
 
 ### Webpack commands
     - webpack ./src/app.js
     - webpack ./src/app.js -p (production)
     - webpack ./src/app.js -p --watch (production and automatic generate file)
+
+
+    ### References: 
+        - https://ejs.co/ (Embedded JavaScript templating.)
+        - https://github.com/jantimon/html-webpack-plugin (html-webpack-plugin)
 
 
         
