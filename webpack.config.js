@@ -1,38 +1,74 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Fiber = require('fibers');
+
+const isProd = process.env.NODE_ENV == 'production';
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        app: './src/app.js',
+        contact: './src/contact.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        clientLogLevel: 'error', // 'none' | 'info' | 'error' | 'warning'
+        compress: isProd,
+        port: 9000,
+        open: true // open in new window every time we are running.        
     },
     module: {
-        rules: [
-            { 
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                })
-            }
-        ]
+        rules: [{
+            test: /\.scss$/,
+            use: [{
+                loader: MiniCssExtractPlugin.loader
+            }, {
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader",
+                options: {
+                    implementation: require("sass"),
+                    fiber: Fiber
+                }
+                // ,
+                // options: {
+                //     includePaths: ['src/scss/']
+                // }
+            }]
+        }]
     },
     plugins: [
-        new ExtractTextPlugin('style.css'),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        }),
         new HtmlWebpackPlugin({
-            title: 'WebPack App',
+            title: 'Index Page',
+            filename: 'index.html',
             template: './src/template/index.ejs',
+            excludeChunks: ['contact'],
             hash: true,
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeRedundantAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                useShortDoctype: true                
-            }           
+            // minify: {
+            //     collapseWhitespace: isProd,
+            //     removeComments: isProd,
+            //     removeRedundantAttributes: isProd,
+            //     removeScriptTypeAttributes: isProd,
+            //     removeStyleLinkTypeAttributes: isProd,
+            //     useShortDoctype: isProd                
+            // }           
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Contact Page',
+            filename: 'contact.html',
+            template: './src/template/index.ejs',
+            chunks: ['contact'],
+            hash: true  
         })
     ]
 }

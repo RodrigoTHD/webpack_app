@@ -1,5 +1,8 @@
-import fn from "./index";
+import { createLink, createTitle, startup } from "./core";
 
-const css = require('app.css');
+require('./scss/app.scss');
 
-fn();
+startup(() => {
+    createTitle('Webpack Starter App / Index');
+    createLink('Contact', './contact.html');
+});
