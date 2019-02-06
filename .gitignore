@@ -1,4 +1,10 @@
 
-node_modules/*
-dist/*
-.vscode/*
+# environment
+/.vscode
+
+# dependencies
+/node_modules
+
+# production
+/dist
+/build

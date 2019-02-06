@@ -1,19 +1,25 @@
-# Webpack Starter App
+# Webpack 4 - Starter App
 
-Webpack dev environment
+Development and Production environment with Babel and Sass loader.
 
-### Version
-    1.0.0 
 
-### GIT
-#### Remnove folder
-    - git rm -r --cached FolderName
-    - git commit -m "Removed folder from repository"
-    - git push origin master
+## Available Scripts
 
-### NPM commands
-    - npm init --yes
-    - npm list -g --depth 0
-    - npm run dev
-    - npm run prod
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br>
+
+It correctly bundles all files in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
         

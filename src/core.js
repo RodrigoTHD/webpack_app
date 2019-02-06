@@ -1,29 +1,30 @@
-const environmentLog = () => {
-    console.log('Script from index page!');
+class App {
 
-    const isProd  = process.env.NODE_ENV == 'production';
-    console.log(`%c ${isProd ? 'production mode' : 'development mode'}`, `font-weigth: bold; color:{isProd ? 'blue' : 'red'}`);
+    static environmentLog () {
+        const isProd = process.env.NODE_ENV == 'production';
+
+        console.log(`%c ${isProd ? 'production mode' : 'development mode'}`, `font-weigth: bold; color: ${isProd} ? 'blue' : 'red'`);
+    }
+
+    static render (handler) {
+    
+        window.onload = function (e) {
+
+            App.environmentLog();           
+            
+            const content = handler.apply(this, [e, process]);
+    
+            if (content) {
+                
+                const root = document.getElementById('root');
+    
+                if (root) {
+
+                    root.innerHTML = content;
+                }
+            }
+        }
+    }
 }
 
-export const startup = (callback) => {    
-
-    window.onload = function (e) {
-
-        environmentLog();
-
-        callback();
-    };
-}
-
-export const createTitle = (title) => {
-    const content = document.createElement('h3');
-    content.textContent = title;
-    document.body.appendChild(content);
-}
-
-export const createLink = (text, href) => {
-    const a = document.createElement('a');
-    a.textContent = text;
-    a.href = href;
-    document.body.appendChild(a);
-}
+export default App;
