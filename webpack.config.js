@@ -8,8 +8,7 @@ const isProd = process.env.NODE_ENV == 'production';
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: {
-        app: './src/app.js',
-        //contact: './src/contact.js' // another entry.
+        app: './src/app.js',        
     },
     output: {
         path: path.resolve(__dirname, 'build'),

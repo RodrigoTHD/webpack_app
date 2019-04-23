@@ -1,9 +1,11 @@
 import App from "./core";
 import logo from './webpack.svg';
 import './App.scss';
+
+//TODO: mover dinamicamente para pasta "public".
+//import '../public/manifest.json';
 import '../public/favicon.ico';
 
-//require('./app.scss');
 App.render(() => {
     return (`
         <div class="App">
